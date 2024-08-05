@@ -12,44 +12,52 @@ function hello() {
 console.log('Test - should say "Hello World!"', hello());
 
 
-// 2. Function to return an personalized hello, using the `name` argument.
+// 2. Function to return a personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName(name) {
-  return;
+  let greeting = 'Hello, ' + name;
+  return greeting;
 }
 // Remember to call the function to test
-
+console.log( "helloName returns:", helloName('Your Name!') );
 
 // 3. Function to add two numbers together & return the result
-function addNumbers(firstNumber) {
-  // return firstNumber + secondNumber;
+function addNumbers(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
 }
-
+console.log( "addNumbers returns:", addNumbers(3, 8) );
 
 // 4. Function to multiply three numbers & return the result
-function multiplyThree() {
-
+function multiplyThree(num1, num2, num3) {
+  return num1 * num2 * num3;
 }
-
+console.log( "multiplyThree returns:", multiplyThree(5, 5, 2) );
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
 function isPositive(number) {
   if (number > 0) {
-    return;
+    return true;
+  } else {
+  return false;
   }
-  return;
 }
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
-
-
+console.log( "isPositive when given a number above 0 returns:", isPositive(7) );
+console.log( "isPositive when given a number zero or lower returns:", isPositive(-7) );
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
 function getLast(array) {
-
+  let compare = [];
+  if (array === compare) {
+    return undefined;
+  } else {
+    return array[array.length - 1];
+  }
 }
-
+console.log( "getLast when given an empty array returns:", getLast([]) );
+console.log( "getLast returns:", getLast(['pizza', 'stroganoff', 'sandwich']) );
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
