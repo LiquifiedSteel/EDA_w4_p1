@@ -15,11 +15,11 @@ console.log('Test - should say "Hello World!"', hello());
 // 2. Function to return a personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName(name) {
-  let greeting = 'Hello, ' + name;
+  let greeting = 'Hello, ' + name + '!';
   return greeting;
 }
 // Remember to call the function to test
-console.log( "helloName returns:", helloName('Your Name!') );
+console.log( "helloName returns:", helloName('Your Name') );
 
 // 3. Function to add two numbers together & return the result
 function addNumbers(firstNumber, secondNumber) {
@@ -62,40 +62,75 @@ console.log( "getLast returns:", getLast(['pizza', 'stroganoff', 'sandwich']) );
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
 function find(value, array) {
-
+  for(i of array) {
+    if (i === value) {
+      return true;
+    }
+  }
+  return false;
 }
-
+console.log( "find when given a value and an array that contains that value returns:", find('happy', ['mad', 'sad', 'happy', 'sleepy', 'cheeseburger']) );
+console.log( "find when given a value and an array that does not contain that value returns:", find('chimichanga', ['mad', 'sad', 'happy', 'sleepy', 'cheeseburger']) );
 // ----------------------
 // Stretch Goals
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
+  let newArray = [...string];
+  if (letter.toLowerCase() === newArray[0].toLowerCase()) {
+    return true;
+  } else {
+    return false;
+  }
 
 }
-
-
+console.log( "isFirstLetter when given a letter that is first in a given string returns:", isFirstLetter('S', 'spaghetti') );
+console.log( "isFirstLetter when given a letter that is not first in a given string returns:", isFirstLetter('S', 'watermelon') );
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
-  // TODO: loop to add items
-
-  // TODO: return the sum
+  for (i of array) {
+    sum += i;
+  }
+  return sum;
 }
-
+console.log( 'sumAll returns:', sumAll([6, 5, 4, 3, 2, 1]) );
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
-
+function allPositive(initial) {
+  let newArray = [];
+  for (i of initial) {
+    if (i > 0) {
+      newArray.push(i);
+    }
+  }
+  return newArray;
 }
-
+console.log( 'allPositive returns', allPositive([6, -9, 21, 0, 14]) );
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
 
-
+// codewars: Unique In Order
+// Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same
+// value next to each other and preserving the original order of elements.
+function unique_in_order(string) {
+  let newArray = [...string];
+  let str2 = [];
+  let fill = 0;
+  for (let i = 0; i < newArray.length; i++) {
+    if (newArray[i] === newArray[i-1]) {
+      fill += 0; // does nothing
+    } else {
+      str2.push(newArray[i]);
+    }
+  }
+  return str2;
+}
+console.log( 'unique_in_order returns:', unique_in_order('AAAABBBCCDAABBB') );
 // DO NOT MODIFY
 // Used for automated testing
 try {
