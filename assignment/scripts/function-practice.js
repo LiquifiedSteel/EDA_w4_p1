@@ -90,7 +90,7 @@ console.log( "isFirstLetter when given a letter that is not first in a given str
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
-  for (i of array) {
+  for (let i of array) {
     sum += i;
   }
   return sum;
@@ -101,7 +101,7 @@ console.log( 'sumAll returns:', sumAll([6, 5, 4, 3, 2, 1]) );
 //     return an empty array. Note: The input array should not change.
 function allPositive(initial) {
   let newArray = [];
-  for (i of initial) {
+  for (let i of initial) {
     if (i > 0) {
       newArray.push(i);
     }
